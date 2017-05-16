@@ -265,7 +265,10 @@ label[for='toggle-all'] {
 	bottom: 1px;
 	position: relative;
 }
-
+#todo-list li p {
+	margin: 0;
+	padding: 0;
+}
 #todo-list li label {
 	white-space: pre;
 	word-break: break-word;
@@ -278,6 +281,7 @@ label[for='toggle-all'] {
 }
 
 #todo-list li.completed label {
+	display: inline-block;
 	color: #a9a9a9;
 	text-decoration: line-through;
 }
