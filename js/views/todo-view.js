@@ -52,6 +52,7 @@ var app = app || {};
 
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.toggleClass('completed', this.model.get('completed'));
+			this.$el.toggleClass('priority', this.model.get('prior'));
 			this.toggleVisible();
 			this.$input = this.$('.edit');
 			return this;
@@ -77,14 +78,9 @@ var app = app || {};
 			this.$el.addClass('editing');
 			this.$input.focus();
 		},
-		
+
 		// Switch this view into `"prior"` mode, highlight displaying.
 		setPrior: function () {
-			if (this.model.get('prior')) {
-				this.$el.removeClass('priority');
-			} else {
-				this.$el.addClass('priority');
-			}
 			this.model.changePrior();
 		},
 
