@@ -21,6 +21,7 @@ var app = app || {};
 			'dblclick label': 'edit',
 			'click .destroy': 'clear',
 			'click .edit-btn': 'edit',
+			'click .priority-btn': 'setPrior',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close'
@@ -75,6 +76,16 @@ var app = app || {};
 		edit: function () {
 			this.$el.addClass('editing');
 			this.$input.focus();
+		},
+		
+		// Switch this view into `"prior"` mode, highlight displaying.
+		setPrior: function () {
+			if (this.model.get('prior')) {
+				this.$el.removeClass('priority');
+			} else {
+				this.$el.addClass('priority');
+			}
+			this.model.changePrior();
 		},
 
 		// Close the `"editing"` mode, saving changes to the todo.
